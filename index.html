@@ -3,11 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- 1. Ganti Judul Web Kamu -->
     <title>Qlickaholic — Produk Digital & Template Sheets</title>
-    
-    <!-- 2. Ganti Link Favicon/Logo (Opsional) -->
     <link rel="icon" type="image/png" href="https://www.google.com/s2/favicons?domain=github.com&sz=64">
 
     <style>
@@ -18,23 +14,20 @@
 </head>
 <body>
 
-    <!-- Target Iframe -->
     <iframe id="appFrame" src="" allowfullscreen></iframe>
 
     <script>
-        // 1. TEMPEL LINK WEB APP GOOGLE APPS SCRIPT KAMU DI SINI (Link Executable /exec)
-        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzrAElu44U8cIvvLk5-UfJs6J1bcqWZ4Dn7rGDahSejsHVL5cnF_JSowOhF8sPW7uWHEA/exec';
+        // PASTE LINK EXEC APPS SCRIPT KAMU DI SINI
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyGARUyYFiw9uHMNBBMsjYWvMgSQ3L1dptFCuruk_2jpIil0euPhfJ-sfzMovwMV1fCkw/exec';
 
-        // 2. Skrip Otomatis Meneruskan Query Parameter (misal: ?page=produk&id=123) ke Iframe
-        const currentSearchParams = window.location.search;
-        const iframeElement = document.getElementById('appFrame');
+        // Tangkap parameter URL (?page=produk&id=xxx) dan teruskan ke Iframe
+        const currentParams = window.location.search;
+        const iframe = document.getElementById('appFrame');
 
-        if (currentSearchParams) {
-            // Jika pengguna mengakses link dengan detail produk
-            iframeElement.src = APPS_SCRIPT_URL + currentSearchParams;
+        if (currentParams) {
+            iframe.src = APPS_SCRIPT_URL + currentParams;
         } else {
-            // Jika pengguna mengakses halaman utama
-            iframeElement.src = APPS_SCRIPT_URL;
+            iframe.src = APPS_SCRIPT_URL;
         }
     </script>
 </body>
